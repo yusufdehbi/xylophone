@@ -43,23 +43,25 @@ void main() {
 class XylophoneApp extends StatelessWidget {
   const XylophoneApp({Key? key}) : super(key: key);
 
-  TextButton soundButton(int trackNumber, Color clr){
-    var btn = TextButton(
+  Expanded soundButton(int trackNumber, Color clr){
+    var btn = Expanded(
+      child: TextButton(
 
-      onPressed: (){
-        final player = AudioPlayer();
-        player.play(AssetSource('note$trackNumber.wav'));
-      },
-      child: Text(''),
-      // style: ButtonStyle(
-      //   backgroundColor: MaterialStateProperty.all<Color>(clr),
-      // )
-      style: TextButton.styleFrom(
-        backgroundColor: clr,
-        padding: EdgeInsets.all(0)
+        onPressed: (){
+          final player = AudioPlayer();
+          player.play(AssetSource('note$trackNumber.wav'));
+        },
+        child: Text(''),
+        // style: ButtonStyle(
+        //   backgroundColor: MaterialStateProperty.all<Color>(clr),
+        // )
+        style: TextButton.styleFrom(
+          backgroundColor: clr,
+          padding: EdgeInsets.all(0)
+        ),
+       
+
       ),
-     
-
     );
     return btn;
   }
@@ -75,13 +77,13 @@ class XylophoneApp extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Expanded(child: soundButton(1, Colors.red)),
-              Expanded(child: soundButton(2, Colors.orange)),
-              Expanded(child: soundButton(3, Colors.yellow)),
-              Expanded(child: soundButton(4, Colors.green)),
-              Expanded(child: soundButton(5, Colors.teal)),
-              Expanded(child: soundButton(6, Colors.blue)),
-              Expanded(child: soundButton(7, Colors.purple)),
+              soundButton(1, Colors.red),
+              soundButton(2, Colors.orange),
+              soundButton(3, Colors.yellow),
+              soundButton(4, Colors.green),
+              soundButton(5, Colors.teal),
+              soundButton(6, Colors.blue),
+              soundButton(7, Colors.purple),
               // TextButton(
               //   onPressed: (){
               //     final player = AudioPlayer();
