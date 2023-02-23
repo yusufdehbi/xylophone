@@ -43,18 +43,86 @@ void main() {
 class XylophoneApp extends StatelessWidget {
   const XylophoneApp({Key? key}) : super(key: key);
 
+  TextButton soundButton(int trackNumber, Color clr){
+    var btn = TextButton(
+      onPressed: (){
+        final player = AudioPlayer();
+        player.play(AssetSource('note$trackNumber.wav'));
+      },
+      child: Text(''),
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all<Color>(clr),
+      ),
+    );
+    return btn;
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         body: SafeArea(
           child: Center(
-            child: ElevatedButton(
-              onPressed: (){
-                var player = AudioPlayer();
-                player.play(AssetSource('note1.wav'));
-              },
-              child: Text('Click Me'),
+            child: Column(
+              children: [
+                soundButton(1, Colors.red),
+                soundButton(2, Colors.orange),
+                soundButton(3, Colors.yellow),
+                soundButton(4, Colors.green),
+                soundButton(5, Colors.teal),
+                soundButton(6, Colors.blue),
+                soundButton(7, Colors.purple),
+                // TextButton(
+                //   onPressed: (){
+                //     final player = AudioPlayer();
+                //     player.play(AssetSource('note3.wav'));
+                //   },
+                //   child: Text(''),
+                //   style: ButtonStyle(
+                //     backgroundColor: MaterialStateProperty.all<Color>(Colors.yellow),
+                //   ),
+                // ),
+                // TextButton(
+                //   onPressed: (){
+                //     final player = AudioPlayer();
+                //     player.play(AssetSource('note4.wav'));
+                //   },
+                //   child: Text(''),
+                //   style: ButtonStyle(
+                //     backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
+                //   ),
+                // ),
+                // TextButton(
+                //   onPressed: (){
+                //     final player = AudioPlayer();
+                //     player.play(AssetSource('note5.wav'));
+                //   },
+                //   child: Text(''),
+                //   style: ButtonStyle(
+                //     backgroundColor: MaterialStateProperty.all<Color>(Colors.teal),
+                //   ),
+                // ),
+                // TextButton(
+                //   onPressed: (){
+                //     final player = AudioPlayer();
+                //     player.play(AssetSource('note6.wav'));
+                //   },
+                //   child: Text(''),
+                //   style: ButtonStyle(
+                //     backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+                //   ),
+                // ),
+                // TextButton(
+                //   onPressed: (){
+                //     final player = AudioPlayer();
+                //     player.play(AssetSource('note7.wav'));
+                //   },
+                //   child: Text(''),
+                //   style: ButtonStyle(
+                //     backgroundColor: MaterialStateProperty.all<Color>(Colors.purple),
+                //   ),
+                // ),
+              ],
             ),
           ),
         ),
