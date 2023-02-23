@@ -45,14 +45,21 @@ class XylophoneApp extends StatelessWidget {
 
   TextButton soundButton(int trackNumber, Color clr){
     var btn = TextButton(
+
       onPressed: (){
         final player = AudioPlayer();
         player.play(AssetSource('note$trackNumber.wav'));
       },
       child: Text(''),
-      style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all<Color>(clr),
+      // style: ButtonStyle(
+      //   backgroundColor: MaterialStateProperty.all<Color>(clr),
+      // )
+      style: TextButton.styleFrom(
+        backgroundColor: clr,
+        padding: EdgeInsets.all(0)
       ),
+     
+
     );
     return btn;
   }
@@ -61,69 +68,71 @@ class XylophoneApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: SafeArea(
-          child: Center(
-            child: Column(
-              children: [
-                soundButton(1, Colors.red),
-                soundButton(2, Colors.orange),
-                soundButton(3, Colors.yellow),
-                soundButton(4, Colors.green),
-                soundButton(5, Colors.teal),
-                soundButton(6, Colors.blue),
-                soundButton(7, Colors.purple),
-                // TextButton(
-                //   onPressed: (){
-                //     final player = AudioPlayer();
-                //     player.play(AssetSource('note3.wav'));
-                //   },
-                //   child: Text(''),
-                //   style: ButtonStyle(
-                //     backgroundColor: MaterialStateProperty.all<Color>(Colors.yellow),
-                //   ),
-                // ),
-                // TextButton(
-                //   onPressed: (){
-                //     final player = AudioPlayer();
-                //     player.play(AssetSource('note4.wav'));
-                //   },
-                //   child: Text(''),
-                //   style: ButtonStyle(
-                //     backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
-                //   ),
-                // ),
-                // TextButton(
-                //   onPressed: (){
-                //     final player = AudioPlayer();
-                //     player.play(AssetSource('note5.wav'));
-                //   },
-                //   child: Text(''),
-                //   style: ButtonStyle(
-                //     backgroundColor: MaterialStateProperty.all<Color>(Colors.teal),
-                //   ),
-                // ),
-                // TextButton(
-                //   onPressed: (){
-                //     final player = AudioPlayer();
-                //     player.play(AssetSource('note6.wav'));
-                //   },
-                //   child: Text(''),
-                //   style: ButtonStyle(
-                //     backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
-                //   ),
-                // ),
-                // TextButton(
-                //   onPressed: (){
-                //     final player = AudioPlayer();
-                //     player.play(AssetSource('note7.wav'));
-                //   },
-                //   child: Text(''),
-                //   style: ButtonStyle(
-                //     backgroundColor: MaterialStateProperty.all<Color>(Colors.purple),
-                //   ),
-                // ),
-              ],
-            ),
+
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Expanded(child: soundButton(1, Colors.red)),
+              Expanded(child: soundButton(2, Colors.orange)),
+              Expanded(child: soundButton(3, Colors.yellow)),
+              Expanded(child: soundButton(4, Colors.green)),
+              Expanded(child: soundButton(5, Colors.teal)),
+              Expanded(child: soundButton(6, Colors.blue)),
+              Expanded(child: soundButton(7, Colors.purple)),
+              // TextButton(
+              //   onPressed: (){
+              //     final player = AudioPlayer();
+              //     player.play(AssetSource('note3.wav'));
+              //   },
+              //   child: Text(''),
+              //   style: ButtonStyle(
+              //     backgroundColor: MaterialStateProperty.all<Color>(Colors.yellow),
+              //   ),
+              // ),
+              // TextButton(
+              //   onPressed: (){
+              //     final player = AudioPlayer();
+              //     player.play(AssetSource('note4.wav'));
+              //   },
+              //   child: Text(''),
+              //   style: ButtonStyle(
+              //     backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
+              //   ),
+              // ),
+              // TextButton(
+              //   onPressed: (){
+              //     final player = AudioPlayer();
+              //     player.play(AssetSource('note5.wav'));
+              //   },
+              //   child: Text(''),
+              //   style: ButtonStyle(
+              //     backgroundColor: MaterialStateProperty.all<Color>(Colors.teal),
+              //   ),
+              // ),
+              // TextButton(
+              //   onPressed: (){
+              //     final player = AudioPlayer();
+              //     player.play(AssetSource('note6.wav'));
+              //   },
+              //   child: Text(''),
+              //   style: ButtonStyle(
+              //     backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+              //   ),
+              // ),
+              // TextButton(
+              //   onPressed: (){
+              //     final player = AudioPlayer();
+              //     player.play(AssetSource('note7.wav'));
+              //   },
+              //   child: Text(''),
+              //   style: ButtonStyle(
+              //     backgroundColor: MaterialStateProperty.all<Color>(Colors.purple),
+              //   ),
+              // ),
+            ],
           ),
         ),
       ),
